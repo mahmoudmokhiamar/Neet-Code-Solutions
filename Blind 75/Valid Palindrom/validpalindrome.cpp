@@ -1,35 +1,32 @@
 #include <bits/stdc++.h>
-#include <algorithm>
+
 using namespace std;
 
-bool compare(string first , string second,int size)
-{
-    bool flag = true;
-    cout << first << " " << second << endl;
-    for(int i=0; i<size ; i++){
-        if(first[i] != second[i]){
-            cout << "no"<< endl;
-            flag = false;
-        }
-    }
-    return flag;
-}
 int main()
 {
 
-    string s = "A man, a plan, a canal: Panama";
-    string rev = "";
-    remove(s.begin(),s.end(),' ');
-    remove(s.begin(),s.end(),':');
-    remove(s.begin(),s.end(),',');
-    for (auto &c : s)
-    {   
-        tolower(c);
-    }
-    for (int j = (int)s.size() - 1; j >= 0; j--)
+    string s = "race a car";
+    string clean = "";
+
+    for (auto c : s)
     {
-        rev += s[j];
+        if(isalpha(c) || isdigit(c))
+        {
+            clean += tolower(c);
+        }
     }
-    cout << compare(s,rev,(int)s.size()) ;
-    return compare(s,rev,(int)s.size());
+    int sz = clean.size();
+    int pt1=0;
+    int pt2 = sz;
+    bool flag = true;
+    for (int i = 0; i < sz; i++)
+    {
+        if(clean[pt1+i] != clean[pt2-i-1])
+        {
+            flag = false;
+        }
+    }
+    
+    // (flag)?cout<<"true" : cout << "false" << endl;
+    return flag;
 }
