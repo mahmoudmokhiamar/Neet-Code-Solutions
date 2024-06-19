@@ -39,6 +39,6 @@ class Solution(object):
                 start = mid + 1 
 
         return ans 
-
-
+        
         ## complexity (M*logN)
+        ## where M = Size of bloomDay array and N = 10**9 
