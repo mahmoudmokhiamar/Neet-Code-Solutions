@@ -37,3 +37,5 @@ class Solution:
             rob2 = temp
 
         return rob2 #max so far
+    
+# either take the previous excluding adjacent ( which is previous rob2 (stored in rob1)) or don't take the current element and take all the previous max.
